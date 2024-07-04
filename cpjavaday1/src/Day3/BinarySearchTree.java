@@ -24,7 +24,8 @@ public class BinarySearchTree {
     }
 
     Node inserting(Node root, int key) {
-        if (root == null) {
+        if (root == null)
+        {
             root = new Node(key);
             return root;
         }
@@ -41,7 +42,8 @@ public class BinarySearchTree {
     // search key in tree (? :
     //(exp)? exp1 :exp2;
 
-    public boolean search(Node root, int key) {
+    public boolean search(Node root, int key)
+    {
         if (root == null)
             return false;
         if (key == root.key)
@@ -59,11 +61,13 @@ public class BinarySearchTree {
             root.left = delete(root.left, key);
         else if (key > root.key)
             root.right = delete(root.right, key);
-        else {
+        else
+        {
             if (root.left == null)
                 return root.right;
             else if (root.right == null)
                 return root.left;
+
 
         }
 
