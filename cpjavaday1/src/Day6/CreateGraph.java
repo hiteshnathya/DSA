@@ -1,4 +1,4 @@
-package Day6.BellmanFord;
+package Day6;
 
 class CreateGraph {
 

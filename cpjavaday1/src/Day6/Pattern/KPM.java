@@ -1,5 +1,4 @@
-package Day6.BellmanFord.Pattern;
-
+package Day6.Pattern;
 public class KPM {
     public static void kmp(String pa, String txt) {
         int m = pa.length();

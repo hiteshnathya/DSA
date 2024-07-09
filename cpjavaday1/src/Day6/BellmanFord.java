@@ -1,4 +1,6 @@
-package Day6.BellmanFord;
+package Day6;
+
+import Day6.CreateGraph;
 
 public class BellmanFord {
 

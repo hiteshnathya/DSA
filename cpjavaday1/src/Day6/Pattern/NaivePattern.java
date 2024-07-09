@@ -1,4 +1,4 @@
-package Day6.BellmanFord.Pattern;
+package Day6.Pattern;
 
 public class NaivePattern
 {

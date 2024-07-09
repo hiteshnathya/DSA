@@ -7,9 +7,9 @@ public class Graph {
     private  int V;
     private List<List<Node>> l1;
 
-    static class Node{
-        int dest;
-        int weight;
+    public static class Node{
+        public int dest;
+        public int weight;
 
         public Node(int dest, int weight) {
             this.dest = dest;
@@ -50,7 +50,7 @@ public class Graph {
         while (!pq.isEmpty())
         {
             int m=pq.poll().dest;
-            System.out.println("Extracted node: " + m);
+            System.out.println("\nExtracted node: " + m);
             for (Node n: l1.get(m))
             {
                 int v=n.dest;
