@@ -1,4 +1,4 @@
-package Assignment.Day8;
+package Assignment.Day7;
 
 import java.util.Iterator;
 import java.util.LinkedList;

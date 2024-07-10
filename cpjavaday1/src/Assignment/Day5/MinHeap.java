@@ -1,4 +1,4 @@
-package Assignment.Day7;
+package Assignment.Day5;
 
 import java.util.Arrays;
 

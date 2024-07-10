@@ -1,4 +1,4 @@
-package Assignment.Day8;
+package Assignment.Day6;
 
 import java.util.*;
 

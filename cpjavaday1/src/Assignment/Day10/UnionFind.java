@@ -1,6 +1,4 @@
-package Assignment.Day9;
-
-import Day5.ufa.UFC;
+package Assignment.Day10;
 
 public class UnionFind {
     int V,E;
