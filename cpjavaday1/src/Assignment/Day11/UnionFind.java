@@ -1,4 +1,4 @@
-package Assignment.Day10;
+package Assignment.Day11;
 
 public class UnionFind {
     int V,E;
