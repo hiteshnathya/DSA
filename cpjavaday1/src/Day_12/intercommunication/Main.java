@@ -47,13 +47,13 @@ class Producer extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i <= 6; i++) {
+        for (int i = 0; i <= 10; i++) {
             share.add(i);
             System.out.println("Produced " + i);
             try {
-                Thread.sleep(1000); // add a delay to see the output clearly
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.sleep(100); // add a delay to see the output clearly
+            }catch (Exception e) {
+                System.out.println("Interrupted");
             }
         }
     }
@@ -67,14 +67,14 @@ class Consumer extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i <= 6; i++) {
+        for (int i = 0; i <= 10; i++) {
             int item = share.retrieve();
             System.out.println("Consumed " + item);
             System.out.println();
             try {
-                Thread.sleep(1000); // add a delay to see the output clearly
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.sleep(1100); // add a delay to see the output clearly
+            } catch (Exception e) {
+                System.out.println("Interrupted");
             }
         }
     }
@@ -82,7 +82,7 @@ class Consumer extends Thread {
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Share share = new Share();
         Producer producer = new Producer(share);
         Consumer consumer = new Consumer(share);
@@ -90,5 +90,11 @@ public class Main {
         producer.start();
         System.out.println();
         consumer.start();
+
+        producer.join();
+        consumer.join();
+
+
+
     }
 }
