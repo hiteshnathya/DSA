@@ -1,4 +1,4 @@
-package Day_14.Lambda.Functionalinterface;
+package Day_14.Functionalinterface;
 
 import java.util.function.Supplier;
 

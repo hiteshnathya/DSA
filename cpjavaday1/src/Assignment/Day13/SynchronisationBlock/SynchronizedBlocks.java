@@ -1,4 +1,4 @@
-package Assignment.Day13;
+package Assignment.Day13.SynchronisationBlock;
 
 class BankAccount {
 

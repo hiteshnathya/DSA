@@ -1,4 +1,4 @@
-package Assignment.Day13;
+package Assignment.Day13.ManagingThread;
 
 public class ThreadExample {
     public static void main(String[] args) {

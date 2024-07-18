@@ -1,4 +1,4 @@
-package Assignment.Day13;
+package Assignment.Day13.Synchronisation;
 
 class ProducerConsumer {
     public static void main(String[] args) {
