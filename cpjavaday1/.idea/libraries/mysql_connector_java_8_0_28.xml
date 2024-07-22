@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-8.0.28">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/jarfile/mysql-connector-java-8.0.28.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jarfile/protobuf-java-3.11.4.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src" />
+    </SOURCES>
+  </library>
+</component>
