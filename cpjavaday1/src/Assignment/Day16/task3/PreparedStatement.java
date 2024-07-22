@@ -1,4 +1,4 @@
-package Assignment.Day16;
+package Assignment.Day16.task3;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
