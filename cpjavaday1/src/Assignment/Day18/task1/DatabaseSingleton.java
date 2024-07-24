@@ -1,64 +1,73 @@
 package Assignment.Day18.task1;
-// DatabaseSingleton.java
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseSingleton {
-    // Private constructor to prevent instantiation from outside
+public class DatabaseSingleton { public static void main(String[] args) {
+    DatabaseSingleton dbSingleton = DatabaseSingleton.getInstance();
+    Connection connection = dbSingleton.establishConnection("jdbc:mysql://localhost:3306/wipro",  "root",  "rps@123");
+    // Use the connection
+    dbSingleton.closeConnection();
+}
+    // Private static instance of the class
+    private static volatile DatabaseSingleton instance;
+
+    // Private connection object
+    private Connection connection;
+
+    // Private constructor to prevent instantiation
     private DatabaseSingleton() {}
 
-    // Private static instance of the singleton class
-    private static DatabaseSingleton instance = null;
-
-    // Private Connection object
-    private Connection connection = null;
-
-    // Public static method to get the instance of the singleton class
+    // Public method to get the singleton instance
     public static DatabaseSingleton getInstance() {
         if (instance == null) {
-            instance = new DatabaseSingleton();
-            // Initialize database connection here
-            instance.initDatabaseConnection();
+            synchronized (DatabaseSingleton.class) {
+                if (instance == null) {
+                    instance = new DatabaseSingleton();
+                }
+            }
         }
         return instance;
     }
 
-    // Private method to initialize database connection
-    private void initDatabaseConnection() {
+    // Method to establish a database connection
+    public Connection establishConnection(String url, String username, String password) {
         try {
-            // Load the JDBC driver
+            // Load the database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Initialize database connection
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "username", "password");
-
-            System.out.println("Database connection initialized");
+            // Establish the connection
+            connection = DriverManager.getConnection(url, username, password);
+            System.out.println("Database connection established successfully!");
         } catch (ClassNotFoundException e) {
-            System.out.println("Error loading JDBC driver: " + e.getMessage());
+            System.out.println("Database driver not found!");
         } catch (SQLException e) {
-            System.out.println("Error initializing database connection: " + e.getMessage());
+            System.out.println("Error establishing database connection!");
         }
-    }
-
-    // Method to get a database connection
-    public Connection getConnection() {
         return connection;
     }
 
-    // Method to close a database connection
-    public void closeConnection(Connection connection) {
+    // Method to close the database connection
+    public void closeConnection() {
         try {
             if (connection != null) {
                 connection.close();
-                System.out.println("Database connection closed");
+                System.out.println("Database connection closed successfully!");
             }
         } catch (SQLException e) {
-            System.out.println("Error closing database connection: " + e.getMessage());
+            System.out.println("Error closing database connection!");
         }
     }
+
+    // Prevent serialization
+    private Object readResolve() {
+        return instance;
+    }
+
+    // Prevent cloning
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException("Singleton cannot be cloned");
+    }
 }
-
-// Main.java
-
