@@ -88,7 +88,7 @@ public class ObserverEx {
 
         // Attach another subscriber and detach one subscriber
         p.attach(s3);
-        p.detach(s1);
+        p.detach(s1);//s1 removed
 
         // Notify subscribers with the second message
         p.notifyUpdate(new Message("This is Second message "));
